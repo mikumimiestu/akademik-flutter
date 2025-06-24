@@ -121,6 +121,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
   <img src="https://img.shields.io/badge/Class-IF1_B-orange?style=flat-square"/>
 </div>
 
+<div align="center">
+  <img src="https://img.shields.io/badge/Developer-Firjatulla_Sukma-blue?style=for-the-badge"/>
+  <br/>
+  <img src="https://img.shields.io/badge/Student_ID-230041-green?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Class-IF1_B-orange?style=flat-square"/>
+</div>
+
 ---
 
 <div align="center">
