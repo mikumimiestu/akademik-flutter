@@ -1,16 +1,38 @@
 # akademik_group_task
 
-A new Flutter project.
+Aplikasi Flutter untuk tugas kelompok akademik.
 
-## Getting Started
+## Struktur Folder
 
-This project is a starting point for a Flutter application.
+- `lib/` : Kode utama aplikasi
+- `assets/` : Gambar dan aset lainnya
+- `test/` : Unit test
 
-A few resources to get you started if this is your first Flutter project:
+## Cara Menjalankan
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```sh
+flutter pub get
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+````<!-- filepath: /Users/zakimushthafabillah/if1_230041_ZAKIMUSHTHAFABILLAH_B/akademik_group_task/README.md -->
+# akademik_group_task
+
+Aplikasi Flutter untuk tugas kelompok akademik.
+
+## Struktur Folder
+
+- `lib/` : Kode utama aplikasi
+- `assets/` : Gambar dan aset lainnya
+- `test/` : Unit test
+
+## Cara Menjalankan
+
+```sh
+flutter pub get
+flutter run
+````
+
+---
