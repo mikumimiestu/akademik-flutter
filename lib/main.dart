@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/jadwal_page.dart';
-// import 'pages/nilai_page.dart';
-// import 'pages/profile_page.dart';
+import 'pages/nilai_page.dart';
+import 'pages/profile_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,8 +40,8 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     HomePage(),
     JadwalPage(),
-    // NilaiPage(),
-    // ProfilePage(),
+    NilaiPage(),
+    ProfilePage(),
   ];
 
   @override
