@@ -55,7 +55,7 @@ akademik_group_task/
 1. **Clone repository**
 
    ```bash
-   git clone https://github.com/username/akademik_group_task.git
+   git clone https://github.com/mikumimiestu/akademik_group_task.git
    cd akademik_group_task
    ```
 
