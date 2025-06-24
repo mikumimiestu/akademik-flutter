@@ -84,7 +84,8 @@ akademik_group_task/
 
 <div align="center">
   <img src="assets/screenshots/home.png" width="200" alt="Home Screen"/>
-  <img src="assets/screenshots/tasks.png" width="200" alt="Tasks Screen"/>
+  <img src="assets/screenshots/jadwal.png" width="200" alt="Jadwal Screen"/>
+  <img src="assets/screenshots/nilai.png" width="200" alt="Nilai Screen"/>
   <img src="assets/screenshots/profile.png" width="200" alt="Profile Screen"/>
 </div>
 
@@ -116,12 +117,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
   <img src="https://img.shields.io/badge/Developer-Zaki_Mushthafa_Billah-blue?style=for-the-badge"/>
-  <br/>
-  <img src="https://img.shields.io/badge/Student_ID-230041-green?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Class-IF1_B-orange?style=flat-square"/>
-</div>
-
-<div align="center">
   <img src="https://img.shields.io/badge/Developer-Firjatulla_Sukma-blue?style=for-the-badge"/>
   <br/>
   <img src="https://img.shields.io/badge/Student_ID-230041-green?style=flat-square"/>
@@ -132,5 +127,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
   <p>⭐ Jangan lupa star repository ini jika bermanfaat!</p>
-  <img src="https://img.shields.io/github/stars/username/akademik_group_task?style=social" alt="GitHub stars"/>
+  <img src="https://img.shields.io/github/stars/mikumimiestu/akademik_group_task?style=social" alt="GitHub stars"/>
 </div>
