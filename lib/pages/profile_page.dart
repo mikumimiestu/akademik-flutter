@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Asumsi Anda memiliki file edit_page.dart untuk navigasi
+import 'edit_page.dart';
+
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -85,21 +88,12 @@ class ProfilePage extends StatelessWidget {
                         child: ClipOval(
                           child: Image.network(
                             'https://digiroister.com/wp-content/uploads/2021/02/team-1.jpg',
-                            width:
-                                isTablet
-                                    ? 120
-                                    : 100, // Lebar 2x radius untuk mengisi lingkaran
-                            height:
-                                isTablet
-                                    ? 120
-                                    : 100, // Tinggi 2x radius untuk mengisi lingkaran
-                            fit:
-                                BoxFit
-                                    .cover, // Untuk memastikan gambar mengisi lingkaran dengan proporsi yang benar
+                            width: isTablet ? 120 : 100,
+                            height: isTablet ? 120 : 100,
+                            fit: BoxFit.cover,
                             errorBuilder:
                                 (context, error, stackTrace) => Icon(
-                                  Icons
-                                      .person, // Fallback icon jika gambar gagal dimuat
+                                  Icons.person,
                                   size: isTablet ? 70 : 60,
                                   color: colorScheme.primary,
                                 ),
@@ -176,38 +170,47 @@ class ProfilePage extends StatelessWidget {
 
             SizedBox(height: 20),
 
-            // Modern Action Buttons
+            // --- PERUBAHAN DI SINI (CARA 2) ---
+            // Seluruh blok tombol dibungkus dengan Padding bawah.
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _buildModernButton(
-                          icon: Icons.edit_rounded,
-                          label: 'Edit Profile',
-                          isPrimary: true,
-                          onPressed: () {
-                            // Edit profile action
-                          },
+              padding: const EdgeInsets.only(bottom: 95.0),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _buildModernButton(
+                            icon: Icons.edit_rounded,
+                            label: 'Edit Profile',
+                            isPrimary: true,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EditProfilePage(),
+                                ),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: _buildModernButton(
-                          icon: Icons.logout_rounded,
-                          label: 'Logout',
-                          isPrimary: false,
-                          onPressed: () {
-                            _showLogoutDialog(context);
-                          },
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: _buildModernButton(
+                            icon: Icons.logout_rounded,
+                            label: 'Logout',
+                            isPrimary: false,
+                            onPressed: () {
+                              _showLogoutDialog(context);
+                            },
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 32),
-                ],
+                      ],
+                    ),
+                    // SizedBox di sini dihapus untuk menghindari jarak ganda
+                  ],
+                ),
               ),
             ),
           ],
@@ -215,6 +218,8 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+
+  // --- Helper Widgets (Tidak ada perubahan di bawah sini) ---
 
   Widget _buildAcademicInfo() {
     return ModernProfileInfoCard(

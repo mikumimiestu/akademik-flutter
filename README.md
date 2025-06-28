@@ -18,28 +18,26 @@
 
 🔥 **Modern UI/UX** - Interface yang clean dan user-friendly  
 👥 **Kolaborasi Tim** - Bekerja sama dalam satu platform  
-📊 **Progress Tracking** - Pantau kemajuan tugas secara real-time  
 📝 **Task Management** - Organisasi tugas yang terstruktur  
-🔔 **Notifications** - Notifikasi untuk deadline dan update  
-🌙 **Dark Mode** - Support tema gelap untuk kenyamanan mata
+🔔 **Notifications** - Notifikasi untuk deadline dan update
 
 ## 🏗️ Struktur Folder
 
 ```
 akademik_group_task/
 ├── 📁 lib/
-│   ├── 📁 models/        # Data models
-│   ├── 📁 views/         # UI screens
-│   ├── 📁 controllers/   # Business logic
-│   ├── 📁 services/      # API & database services
-│   ├── 📁 utils/         # Helper functions
-│   └── 📄 main.dart      # Entry point
+│   ├── 📁 pages/                 # Page components
+│   |    ├── 📄 chat_page.dart    # Chat page
+│   |    ├── 📄 edit_page.dart    # Edit Profile page
+│   |    ├── 📄 jadwal_page.dart  # Jadwal page
+│   |    ├── 📄 nilai_page.dart   # Nilai page
+│   |    └── 📄 profil_page.dart  # Profil page
+│   └── 📄 main.dart              # Entry point
 ├── 📁 assets/
-│   ├── 📁 images/        # Gambar dan icon
-│   ├── 📁 fonts/         # Custom fonts
-│   └── 📁 data/          # Data statis
-├── 📁 test/              # Unit & widget tests
-└── 📄 pubspec.yaml       # Dependencies
+│   ├── 📁 images/              # Gambar dan icon
+│   ├── 📁 screenshoot/         # Custom fonts
+├── 📁 test/                    # Unit & widget tests
+└── 📄 pubspec.yaml             # Dependencies
 ```
 
 ## 🚀 Quick Start
@@ -75,9 +73,6 @@ akademik_group_task/
 <div align="center">
   <img src="https://img.shields.io/badge/Framework-Flutter-blue?style=flat-square&logo=flutter"/>
   <img src="https://img.shields.io/badge/Language-Dart-blue?style=flat-square&logo=dart"/>
-  <img src="https://img.shields.io/badge/State_Management-Provider-green?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Database-SQLite-orange?style=flat-square&logo=sqlite"/>
-  <img src="https://img.shields.io/badge/HTTP-Dio-red?style=flat-square"/>
 </div>
 
 ## 📱 Screenshots
@@ -87,6 +82,9 @@ akademik_group_task/
   <img src="assets/screenshots/jadwal.png" width="200" alt="Jadwal Screen"/>
   <img src="assets/screenshots/nilai.png" width="200" alt="Nilai Screen"/>
   <img src="assets/screenshots/profile.png" width="200" alt="Profile Screen"/>
+  <img src="assets/screenshots/chat.png" width="200" alt="Chat Screen"/>
+  <img src="assets/screenshots/edit.png" width="200" alt="Edit Screen"/>
+  <img src="assets/screenshots/popuplogout.png" width="200" alt="Pop Up Logout Screen"/>
 </div>
 
 ## 🎯 Roadmap
@@ -118,9 +116,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
   <img src="https://img.shields.io/badge/Developer-Zaki_Mushthafa_Billah-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Developer-Firjatulla_Sukma-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Developer-Aldo_Deliskar-blue?style=for-the-badge"/>
   <br/>
   <img src="https://img.shields.io/badge/Student_ID-230041-green?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Class-IF1_B-orange?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Student_ID-230016-green?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Student_ID-230004-green?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Class-IF1-orange?style=flat-square"/>
 </div>
 
 ---

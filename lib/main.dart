@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'pages/jadwal_page.dart';
 import 'pages/nilai_page.dart';
 import 'pages/profile_page.dart';
+import 'pages/chat_page.dart'; // Pastikan import ini aktif untuk ke halaman chat yang benar
 
 void main() {
   runApp(MyApp());
@@ -16,10 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
+        scaffoldBackgroundColor:
+            Colors.grey.shade50, // Latar belakang sedikit abu-abu
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Inter',
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
+          seedColor: Colors.blue.shade600,
           brightness: Brightness.light,
         ),
       ),
@@ -46,76 +49,100 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    // --- PERUBAHAN UTAMA: MENGGUNAKAN STACK ---
     return Scaffold(
-      body: _pages[_currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 20,
-              offset: Offset(0, -5),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _currentIndex,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-              HapticFeedback.lightImpact();
-            },
-            backgroundColor: Colors.white,
-            selectedItemColor: Colors.blue.shade600,
-            unselectedItemColor: Colors.grey.shade500,
-            selectedFontSize: 12,
-            unselectedFontSize: 11,
-            elevation: 0,
-            items: [
-              BottomNavigationBarItem(
-                icon: _buildNavIcon(Icons.home_rounded, 0),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavIcon(Icons.schedule_rounded, 1),
-                label: 'Jadwal',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavIcon(Icons.grade_rounded, 2),
-                label: 'Nilai',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavIcon(Icons.person_rounded, 3),
-                label: 'Profile',
-              ),
-            ],
+      // Properti bottomNavigationBar dihapus dan dipindahkan ke dalam Stack
+      body: Stack(
+        children: [
+          // 1. Konten Halaman (tetap di lapisan bawah)
+          _pages[_currentIndex],
+
+          // 2. Navigasi Melayang (ditempatkan di atas konten)
+          Positioned(
+            bottom: 24,
+            left: 24,
+            right: 24,
+            child: _buildFloatingNavBar(),
           ),
-        ),
+        ],
       ),
     );
   }
 
-  Widget _buildNavIcon(IconData icon, int index) {
-    bool isSelected = _currentIndex == index;
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
-      padding: EdgeInsets.all(isSelected ? 8 : 4),
+  // --- WIDGET BARU UNTUK MEMBUAT NAVIGASI MELAYANG ---
+  Widget _buildFloatingNavBar() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color:
-            isSelected
-                ? Colors.blue.shade600.withOpacity(0.1)
-                : Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            blurRadius: 20,
+            spreadRadius: 2,
+            offset: Offset(0, 10),
+          ),
+        ],
       ),
-      child: Icon(icon, size: isSelected ? 24 : 22),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildNavItem(Icons.home_filled, 'Home', 0),
+          _buildNavItem(Icons.schedule_rounded, 'Jadwal', 1),
+          _buildNavItem(Icons.bar_chart_rounded, 'Nilai', 2),
+          _buildNavItem(Icons.person_rounded, 'Profile', 3),
+        ],
+      ),
+    );
+  }
+
+  // --- WIDGET BARU UNTUK SETIAP ITEM NAVIGASI ---
+  Widget _buildNavItem(IconData icon, String label, int index) {
+    bool isSelected = _currentIndex == index;
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _currentIndex = index;
+        });
+        HapticFeedback.lightImpact();
+      },
+      borderRadius: BorderRadius.circular(16),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.blue.withOpacity(0.1) : Colors.transparent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              color: isSelected ? Colors.blue.shade700 : Colors.grey.shade600,
+              size: 24,
+            ),
+            // Menampilkan label hanya jika item terpilih
+            if (isSelected) ...[
+              SizedBox(width: 8),
+              Text(
+                label,
+                style: TextStyle(
+                  color: Colors.blue.shade800,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }
 
+// ... Sisa kode (HomePage, Post, PostWidget) tetap sama seperti sebelumnya ...
 class HomePage extends StatelessWidget {
   final List<Post> posts = [
     Post(
@@ -130,27 +157,14 @@ class HomePage extends StatelessWidget {
       isVerified: true,
     ),
     Post(
-      username: 'mahasiswa_aktif',
-      userAvatar:
-          'https://d33q3w9egdsblz.cloudfront.net/guide/articles/ID_105_2.jpg',
+      username: 'admin_kampus',
+      userAvatar: 'https://www.astbyte.com/icon.png',
       imageUrl:
-          'https://cdn1-production-images-kly.akamaized.net/1IiYXfBwcf4z1U1BqFFiEln2u2M=/1200x1200/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5006505/original/086578600_1731654160-cara-belajar-bahasa-jepang.jpg',
+          'https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/06/26/3019852258.jpeg',
       caption:
-          'Tips belajar efektif: Buat jadwal belajar yang teratur dan konsisten! 💪📖 #StudyTips',
-      likes: 128,
-      timeAgo: '5j',
-      isVerified: false,
-    ),
-    Post(
-      username: 'perpustakaan',
-      userAvatar:
-          'https://unair.ac.id/wp-content/uploads/2022/07/perpustakaan.jpg',
-      imageUrl:
-          'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01h8djz91qdav4f4sqjha8gntn.jpg',
-      caption:
-          'Perpustakaan buka sampai jam 9 malam. Yuk manfaatkan untuk belajar! 📚🏛️',
-      likes: 89,
-      timeAgo: '1h',
+          'Selamat datang di semester baru! Jangan lupa untuk mengecek jadwal kuliah kalian. 📚✨',
+      likes: 245,
+      timeAgo: '2j',
       isVerified: true,
     ),
   ];
@@ -168,28 +182,25 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      Colors.blueGrey.shade400,
-                      Colors.blueGrey.shade600,
-                      Colors.blueGrey,
-                    ],
+                    colors: [Colors.blue.shade600, Colors.blue.shade800],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
-                  borderRadius: BorderRadius.circular(20),
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //     color: Colors.blue.withOpacity(0.3),
-                  //     blurRadius: 20,
-                  //     offset: Offset(0, 10),
-                  //   ),
-                  // ],
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.blue.withOpacity(0.3),
+                      blurRadius: 15,
+                      offset: Offset(0, 5),
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,22 +223,45 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChatListPage(),
+                              ), // Panggil ChatListPage
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(16),
+                          child: Container(
+                            padding: EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Icon(
+                              Icons
+                                  .forum_rounded, // Ikon baru yang lebih modern
+                              color: Colors.white,
+                              size: 26,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-
-            // Posts Section
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 return PostWidget(post: posts[index]);
               }, childCount: posts.length),
             ),
-
-            // Bottom Padding
-            SliverToBoxAdapter(child: SizedBox(height: 100)),
+            SliverToBoxAdapter(
+              // Padding tambahan di bawah agar tidak tertutup nav bar
+              child: SizedBox(height: 120),
+            ),
           ],
         ),
       ),
@@ -366,9 +400,6 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
               ],
             ),
           ),
-
-          // Image
-          // Ganti bagian Image dalam PostWidget dengan ini:
 
           // Image
           Container(
