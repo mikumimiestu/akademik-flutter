@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'pages/jadwal_page.dart';
 import 'pages/nilai_page.dart';
 import 'pages/profile_page.dart';
-import 'pages/chat_page.dart'; // Pastikan import ini aktif untuk ke halaman chat yang benar
+import 'pages/chat_page.dart';
 
 void main() {
   runApp(MyApp());
