@@ -9,7 +9,7 @@
 
 <div align="center">
   <h3>📱 Aplikasi Flutter Modern untuk Tugas Kelompok Akademik</h3>
-  <p>Solusi digital yang memudahkan kolaborasi dan manajemen tugas akademik</p>
+  <p>Solusi digital yang memudahkan komunikasi, edukasi dalam satu aplikasi</p>
 </div>
 
 ---
@@ -17,8 +17,8 @@
 ## ✨ Features
 
 🔥 **Modern UI/UX** - Interface yang clean dan user-friendly  
-👥 **Kolaborasi Tim** - Bekerja sama dalam satu platform  
-📝 **Task Management** - Organisasi tugas yang terstruktur  
+👥 **Sosicial Post** - Postingan yang dapat dibagikan dengan teman dan dapat dilihat oleh semua
+📝 **KRS** - Susunan Jadwal Kuliah yang dapat diakses dengan mudah beserta nilai yang telah diperoleh
 🔔 **Notifications** - Notifikasi untuk deadline dan update
 
 ## 🏗️ Struktur Folder
