@@ -17,8 +17,8 @@
 ## ✨ Features
 
 🔥 **Modern UI/UX** - Interface yang clean dan user-friendly  
-👥 **Sosicial Post** - Postingan yang dapat dibagikan dengan teman dan dapat dilihat oleh semua
-📝 **KRS** - Susunan Jadwal Kuliah yang dapat diakses dengan mudah beserta nilai yang telah diperoleh
+👥 **Sosicial Post** - Postingan yang dapat dibagikan dengan teman dan dapat dilihat oleh semua  
+📝 **KRS** - Susunan Jadwal Kuliah yang dapat diakses dengan mudah beserta nilai yang telah diperoleh  
 🔔 **Notifications** - Notifikasi untuk deadline dan update
 
 ## 🏗️ Struktur Folder
@@ -46,7 +46,7 @@ akademik_group_task/
 
 - Flutter SDK (3.0+)
 - Dart SDK (2.17+)
-- IDE (VS Code/Android Studio)
+- IDE (VS Code/Android Studio/XCode)
 
 ### Installation
 
