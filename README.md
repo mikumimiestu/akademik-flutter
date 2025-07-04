@@ -8,7 +8,7 @@
 </div>
 
 <div align="center">
-  <h3>📱 Aplikasi Flutter Modern untuk Tugas Kelompok Akademik</h3>
+  <h3>📱 Aplikasi Flutter Modern untuk Akademik</h3>
   <p>Solusi digital yang memudahkan komunikasi, edukasi dalam satu aplikasi</p>
 </div>
 
